@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 문서객체 조작메서드</title>
+  <style>
+    .p01 {background: #9090f7;}
+    .p02 {background: #f1b8ff;}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      const b1 = $('#btn01');
+      const b2 = $('#btn02');
+
+      b1.click(function(){
+        $('.p01').text('내용을 변경하였습니다.');
+      });
+
+      b2.click(function(){
+        $('.p02').html('<em><a href="#" title="">html태그 추가하기</a></em>');
+      });
+
+      $('p').click(function(){
+        let content = $(this).text();
+        console.log(content);
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <h2>제이쿼리 문서객체 조작메서드</h2>
+  <p>문서객체조작이란? DOM(문서객체모델)에서 HTML문서안에서 모든 요소들과 내용들을 제이쿼리를 사용하여 글자를 변경하거나 추가, 삭제, 속성값을 변경할 수 있는 것을 말한다.</p>
+  <p>https://oscarotero.com/jquery/페이지의 API에서 'ATTRIBUTES','MANIPULATION'카테고리에서 메소드 확인가능.</p>
+
+  <dl>
+    <dt>문서 내용을 변경하기 위한 메서드</dt>
+    <dd>.css() : 선택한 요소에 css서식을 적용한다.</dd>
+    <dd>.addClass() : 선택한 요소에 미리 만든 css서식을 추가한다.</dd>
+    <dd>.removeClass() : 선택한 요소에 적용된 css서식을 삭제한다.</dd>
+    <dd>.toggleClass() : 선택한 요소에 미리 만들어 놓은 서식을 추가하거나 삭제한다.</dd>
+    <dd>.hasClass() : 선택한 요소에 class서식이 있는지, 없는지 유무를 판단</dd>
+    <dd>.attr() : 선택한 요소의 속성을 가져오기</dd>
+    <dd>.attr('속성','값') : 선택한 요소의 속성과 값이 일치하는 내용가져오기/변경하기</dd>
+    <dd>.text() : 선택한 요소의 내용을 삽입하거나 내용을 가져오기</dd>
+    <dd>.html() : 선택한 요소에 html태그 내용을 삽입하거나 가져오기</dd>
+  </dl>
+
+  <h3>1. text() 메서드로 선택한 요소에 내용 추가하기</h3>
+  <p class="p01">text메서드로 문단 내용 변경하기</p>
+
+  <h3>2. html() 메서드로 선택한 요소에 html 내용 추가하기</h3>
+  <p class="p02">html메서드로 html태그 추가하기</p>
+
+  <input type="button" value="text()메서드 실행하기" id="btn01">
+  <input type="button" value="html()메서드 실행하기" id="btn02">
+</body>
+</html>
